@@ -13,5 +13,6 @@ object MyServer extends WebServer:
     import akka.http.scaladsl.server.StandardRoute
 
     path("hello") { extractClientIP { ip =>
-      get { log(s"/hello"); reply(html.helloPage(msg = s"hello $ip")) } 
+      val addr = ip.toOption.map(_.getHostAddress.toString).getOrElse("unknown")
+      get { log(s"/hello"); reply(html.helloPage(msg = s"hello from ip=$addr")) } 
     } }
