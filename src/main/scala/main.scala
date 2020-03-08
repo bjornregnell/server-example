@@ -1,4 +1,4 @@
-def ServerPort = 9000
+def ServerPort = 8989
 def ServerIP   = "0.0.0.0"
 def now = new java.util.Date
 
